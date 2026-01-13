@@ -4,21 +4,21 @@ import Image from "next/image";
 export default function UsageScenarios() {
   const scenarios = [
     {
-      title: "ANAL KANALI",
-      subtitle: "SOHASIDA NOQULAYLIK",
-      imgSrc: "/sc1.png", // Noqulaylikni ifodalovchi rasm
+      title: "TOZALASH",
+      subtitle: "ARTEMISIA KUCHI",
+      imgSrc: "/toza.png", // Noqulaylikni ifodalovchi rasm
       color: "from-[#C5A358]/5 to-[#C5A358]/10",
     },
     {
-      title: "YUQORI",
-      subtitle: "SEZUVCHANLIKDA",
-      imgSrc: "/sc2.png", // Terini yumshatishni ifodalovchi rasm
+      title: "TIKLASH",
+      subtitle: "ICHAK MIKROFLORASI",
+      imgSrc: "/tiklash.png", // Terini yumshatishni ifodalovchi rasm
       color: "from-gray-50 to-gray-100",
     },
     {
-      title: "GIGIYENIK",
-      subtitle: "PARVARISHDA",
-      imgSrc: "/sc3.png", // Tabiiy parvarishni ifodalovchi rasm
+      title: "HIMOYA",
+      subtitle: "KUCHLI IMMUNITET",
+      imgSrc: "/ximoya.png", // Tabiiy parvarishni ifodalovchi rasm
       color: "from-[#C5A358]/10 to-[#C5A358]/20",
     },
   ];

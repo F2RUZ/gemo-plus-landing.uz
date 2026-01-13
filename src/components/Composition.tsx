@@ -71,7 +71,7 @@ export default function Composition() {
               <div className="absolute inset-0 bg-white rounded-full shadow-2xl flex items-center justify-center p-6 border-[12px] border-[#C5A358]/5">
                 <div className="relative w-full h-full opacity-90">
                   <Image
-                    src="/composition.png" // O'simliklar yoki tarkibiy qismlar rasmi
+                    src="/center.png" // O'simliklar yoki tarkibiy qismlar rasmi
                     alt="Gemo Plus Natural Composition"
                     fill
                     className="object-contain"

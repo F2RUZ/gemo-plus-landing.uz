@@ -8,24 +8,24 @@ export default function Articles() {
 
   const articles = [
     {
-      title: "Gigiyenik parvarish qoidalari",
+      title: "Organizmni tozalashning 5 belgisi",
       description:
-        "Bavosil va yuqori sezuvchanlikda anal kanali sohasini qanday qilib to'g'ri va xavfsiz parvarish qilish kerak?",
-      imgSrc: "/art1.png",
+        "Parazitlar organizmdan chiqib ketayotganini qanday bilish mumkin? Terining holati va uyqu sifati yaxshilanishi haqida.",
+      imgSrc: "/paper.png",
       category: "Parvarish",
     },
     {
-      title: "Isiriq moyining foydalari",
+      title: "Shuvoq (Artemisia) siri",
       description:
-        "Gemo Plus tarkibidagi shuvoq (isiriq) efir moyining tetiklashtiruvchi va yumshatuvchi xususiyatlari haqida.",
-      imgSrc: "/art2.png",
+        "Nega qadimdan shuvoq o'simligi gelmintlarga qarshi eng kuchli vosita hisoblangan? ParazitOff tarkibidagi 25% kontsentrat kuchi.",
+      imgSrc: "/tomchi.png",
       category: "Tarkib",
     },
     {
-      title: "Kundalik hayotda qulaylik",
+      title: "Sog'lom ichak - sog'lom hayot",
       description:
-        "Noqulaylik hissini kamaytirish va o'simlik moylari yordamida terining holatini yaxshilash usullari.",
-      imgSrc: "/art3.png",
+        "Ichak mikroflorasini tiklash orqali immunitetni qanday ko'tarish mumkin? Kursdan so'ng parhez bo'yicha maslahatlar.",
+      imgSrc: "/soglom.png",
       category: "Salomatlik",
     },
   ];

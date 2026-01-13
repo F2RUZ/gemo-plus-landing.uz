@@ -101,7 +101,7 @@ export default function Usage() {
             }}
           >
             <Image
-              src="/usage_bg.png" // Mahsulotni qo'llash jarayoni yoki qulaylikni ifodalovchi rasm
+              src="/right.png" // Mahsulotni qo'llash jarayoni yoki qulaylikni ifodalovchi rasm
               alt="Gemo Plus Usage"
               fill
               className="object-cover"
