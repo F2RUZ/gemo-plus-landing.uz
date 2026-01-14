@@ -2,35 +2,42 @@ name: Production Deployment
 
 on:
   push:
-    branches: [ main ] # Agar master bo'lsa, master deb o'zgartiring
+    branches: [ main ] # Agar master bo'lsa, buni master qiling
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. GitHub-dagi kodingizni virtual serverga yuklaydi
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # 2. Node.js muhitini sozlaydi (Version 20)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
+      # 3. Kutubxonalarni o'rnatadi (npm install-dan ko'ra npm ci tezroq va ishonchli)
       - name: Install Dependencies
         run: npm ci
 
+      # 4. Next.js loyihasini build qiladi (out papkasi hosil bo'ladi)
       - name: Build Project
         run: npm run build
 
+      # 5. Build bo'lgan fayllarni SSH (SCP) orqali serverga otadi
       - name: Deploy to Server via SSH (SCP)
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
           source: "out/*"
-          # SIZ BERGAN ANIQ YO'L:
           target: "/home/user/Projects/Euphoria/lands/gemo-plus-landing.uz"
           strip_components: 1
+          overwrite: true # Serverdagi eski fayllarni yangisi bilan almashtiradi
+          rm: false # Serverdagi boshqa fayllarni o'chirib tashlamaydi
