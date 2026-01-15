@@ -1,31 +1,59 @@
-name: Production Deployment
+name: Deploy GemoPlus Landing
 
 on:
   push:
-    branches: [ main ] # Agar branchni master bo'lsa, master deb yoz
+    branches: ["**"]
+
+permissions:
+  contents: write
+  packages: write
+  actions: read
 
 jobs:
-  build-and-deploy:
-    runs-on: self-hosted # <--- Aynan sening 'voip2' runneringni ishlatadi
+  deploy:
+    runs-on: [self-hosted, Linux, X64]
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
 
     steps:
-      - name: Checkout Repository
+      - name: 📂 Repo-ni ko'chirib olish
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🟢 Node.js o'rnatish
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Install Dependencies
+      - name: 📦 Kutubxonalarni o'rnatish
         run: npm ci
 
-      - name: Build Project
+      - name: 🏗️ Loyihani Build qilish
         run: npm run build
 
-      - name: Deploy to Folder
+      - name: 🚀 Serverga Deploy qilish
         run: |
-          # 1. Avval eski fayllarni tozalaymiz
-          rm -rf /home/user/Projects/Euphoria/lands/gemo-plus-landing.uz/*
-          # 2. Yangi build fayllarni nusxalaymiz
-          cp -r out/* /home/user/Projects/Euphoria/lands/gemo-plus-landing.uz/
+          # Maqsadli papka - Aynan chiziqcha bilan
+          TARGET_DIR="/home/user/Projects/Euphoria/lands/gemo-plus-landing.uz"
+          
+          # Papka mavjudligini ta'minlash
+          mkdir -p $TARGET_DIR
+          
+          # Build papkasini aniqlash
+          if [ -d "out" ]; then
+            SOURCE_DIR="out"
+          elif [ -d ".next" ]; then
+            SOURCE_DIR=".next"
+          else
+            echo "❌ Build papkasi topilmadi!"
+            exit 1
+          fi
+          
+          echo "Deploying from $SOURCE_DIR to $TARGET_DIR..."
+          
+          # Eskilarni o'chirib, yangisini nusxalash
+          rm -rf $TARGET_DIR/*
+          cp -r $SOURCE_DIR/* $TARGET_DIR/
+          
+          echo "✅ GemoPlus muvaffaqiyatli yakunlandi!"
