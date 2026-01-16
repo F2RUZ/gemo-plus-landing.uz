@@ -55,7 +55,7 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
     setFormData({ ...formData, phone: formatted });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const digitsOnly = formData.phone.replace(/\D/g, "");
 
@@ -69,11 +69,10 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
     const payload = {
       full_name: formData.name,
       phone_number: `+${digitsOnly}`,
-      product_name: "Gemo Plus", // Mahsulot nomi yangilandi
+      product_name: "Gemo Plus",
     };
 
     try {
-      // API manzilingizni tekshiring (O'zgaruvchi nomi loyihaga mos bo'lishi kerak)
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_GEMOPLUS}/leads/`,
         {
@@ -83,10 +82,16 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
         }
       );
 
+      // --- STATUS KODLARINI TEKSHIRISH ---
       if (response.ok) {
         setStatus("success");
         setTimeout(() => onClose(), 4000);
+      } else if (response.status === 429) {
+        // --- 429 LIMIT LOGIKASI ---
+        setStatus("idle");
+        showNotice("Siz allaqachon ariza qoldirgansiz. Iltimos, 1 soatdan keyin qayta urinib ko'ring.");
       } else {
+        // Boshqa server xatoliklari (400, 500 va h.k.)
         throw new Error();
       }
     } catch (error) {
@@ -94,7 +99,6 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
       showNotice("Xatolik yuz berdi! Server bilan bog'lanib bo'lmadi.");
     }
   };
-
   if (!isOpen) return null;
 
   return (

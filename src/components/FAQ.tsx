@@ -4,41 +4,33 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 
 const faqData = [
   {
-    question: "GemoPlus qanday muammolarda yordam beradi?",
-    answer: "GemoPlus shuvoq efir moyi va shifobaxsh o'tlar asosida yaratilgan bo'lib, gemorroyning barcha bosqichlaridagi og'riq, qichishish va yallig'lanishni samarali bartaraf etadi.",
+    question: "Gemo Plus bavosilni davolaydimi?",
+    answer: "Yo‘q. Gemo Plus dori vositasi hisoblanmaydi. U parvarish va qulaylikni saqlash, terining umumiy holatini yaxshilash va noqulaylikni kamaytirish uchun ishlatiladi.",
   },
   {
-    question: "Mahsulotni qo'llash tartibi qanday?",
-    answer: "GemoPlus muammoli sohaga kuniga 1-2 mahal, tozalangan teriga yupqa qatlam qilib surtiladi. Eng yaxshi natija uchun kursni 20-30 kun davom ettirish tavsiya etiladi.",
+    question: "Kasallik xuruj qilganda qo‘llash mumkinmi?",
+    answer: "Vosita parvarishning bir qismi sifatida qo‘llaniladi. Yaqqol namoyon bo‘lgan o'tkir alomatlar bilan shoshilinch ravishda shifokorga murojaat qilish va uning tavsiyalariga amal qilish kerak.",
   },
   {
-    question: "Tarkibi haqiqatan ham xavfsizmi?",
-    answer: "Ha, mahsulot 100% tabiiy va xavfsiz formulaga ega. Uning tarkibida kimyoviy gormonlar yo'q, shuning uchun o'rganib qolish yoki nojo'ya ta'sirlar keltirib chiqarmaydi.",
-  },
-  {
-    question: "Natija qancha vaqtda seziladi?",
-    answer: "Dastlabki yengillik (og'riq va qichishish kamayishi) birinchi qo'llashdanoq seziladi. To'liq regeneratsiya va simptomlardan xalos bo'lish uchun to'liq kurs talab etiladi.",
-  },
-  {
-    question: "Kimlarga foydalanish tavsiya etilmaydi?",
-    answer: "Mahsulot tarkibidagi o'simlik ekstraktlariga shaxsiy allergik ta'sir bo'lgan holatlarda foydalanishdan oldin mutaxassis bilan maslahatlashish tavsiya etiladi.",
+    question: "Uzoq muddat qo‘llash uchun yaroqlimi?",
+    answer: "Mahsulot odatda kurslar tomonidan foydalaniladi. Foydalanish davomiyligi individual tarzda belgilanadi. Kurs davomida foydalanish samaradorlikni oshirishga yordam beradi.",
   },
 ];
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const primaryColor = "#C5A358"; // GemoPlus Gold rangi
+  const primaryColor = "#C5A358"; // GemoPlus Gold (Oltin) rangi
   const darkColor = "#1A1A1A";    // GemoPlus Dark rangi
 
   return (
     <section className="w-full py-3 bg-white" id="faq">
       <div className="max-w-[700px] mx-auto px-4">
         
-        {/* Sarlavha qismi - Sustaflex/Cardio Balance stili */}
+        {/* Sarlavha qismi - GemoPlus Gold stili */}
         <div className="mb-10 flex items-center gap-3 border-b-2 pb-4" style={{ borderColor: primaryColor }}>
           <HelpCircle size={28} style={{ color: primaryColor }} />
           <h2 className="text-xl md:text-2xl font-black uppercase tracking-tight text-black">
-            TEZ BERILADIGAN <span style={{ color: primaryColor }}>SAVOLLAR</span>
+            KO'P BERILADIGAN <span style={{ color: primaryColor }}>SAVOLLAR</span>
           </h2>
         </div>
 
@@ -74,6 +66,8 @@ export default function FAQ() {
             </div>
           ))}
         </div>
+
+     
 
       </div>
     </section>
