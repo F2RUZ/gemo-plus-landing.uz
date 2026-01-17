@@ -49,10 +49,10 @@ export default function UsageScenarios() {
               className="group relative h-[260px] bg-white rounded-[40px] shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
             >
               {/* Matnlar (Chap tomonda) */}
-              <div className="absolute left-8 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                <h3 className="text-[#1A1A1A] text-2xl font-[1000] leading-[0.9] tracking-tighter uppercase">
+              <div className="absolute left-2 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                <h3 className="text-[#f4c96d] text-2xl font-[1000] leading-[0.9] tracking-tighter uppercase">
                   {card.title} <br />
-                  <span className="text-lg text-[#C5A358] font-black">
+                  <span className="text-lg text-[#efbd52] font-black">
                     {card.subtitle}
                   </span>
                 </h3>
@@ -60,7 +60,7 @@ export default function UsageScenarios() {
 
               {/* Rasm qismi (O'ng tomonda) */}
               <div
-                className={`absolute right-0 top-0 w-[65%] h-full bg-gradient-to-l ${card.color} z-10`}
+                className={`absolute right-0 top-0 w-[100%] h-full bg-gradient-to-l ${card.color} z-10`}
               >
                 <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-105">
                   <Image
